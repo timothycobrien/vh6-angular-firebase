@@ -70,17 +70,54 @@ AngularFireAuthModule
 
 Now we can use Firebase throughout our app! Wow!
 
-### Creating a sign-in page
+### Creating a sign-in system
 
 This is really going to involve two things. First we need to check that we're signed in whenever we navigate anywhere in our application. That's going to involve a service to check for being signed in. We're also going to need a service that actually signs us in.
 
-#### Create log-in page
+#### Create log-in service
 
 Let's begin by making a service that signs us in using Google SSO. This could easily be changed to use another kind of SSO or email&password, but Google SSO should be good enough for our use case here.
 
 Run `ng g service login`.
 
-Now we're going to create two m
+Let's import some things we'll need
+
+```TypeScript
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase';
+```
+
+Now we're going to create a method to sign the user in with Google so we can do that anywhere we want. This looks like
+
+```TypeScript
+public signIn(): Promise<firebase.auth.UserCredential> {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    );
+  }
+```
+
+Basically we're telling Angular that when we call this method, we want a popup that's going to let us sign in with some form of Google SSO Authentication.
+
+Now let's define the details of our constructor. The important line to discuss here is
+
+```TypeScript
+constructor(
+    private firebaseAuth: AngularFireAuth
+)
+```
+
+This creates an instance of firebaseAuth based on the module we imported in `app.module.ts`. Angular is smart, so if we create this module multiple times it won't reload everything from scratch each time!
+
+Let's create the view for our login page and go over some other basic Angular concepts.
+
+#### Create login page
+
+Let's run `ng g component login` to create a view of our login page.
+
+This is going to be a pretty simple login button for now. I'm going to rely on `@angular/material` which is a nice package for material design in Angular. This will let us get nice looking UIs spun up very quickly. It works especially well for those of us who are not very front-end focused. We can `ng add @angular/material` which will give us support for the material package throughout our application. Just pick whatever theme appeals to you and decline the other additions.
+
+Now add `MatButtonModule` to our imports down below as we did earlier.
 
 #### Check for being signed in
 
