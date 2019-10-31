@@ -7,8 +7,6 @@ import * as firebase from 'firebase';
 })
 export class LoginService {
 
-  user: firebase.User;
-
   constructor(
     private firebaseAuth: AngularFireAuth
   ) {}
@@ -19,5 +17,9 @@ export class LoginService {
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     );
+  }
+
+  public getLoginStatus(): firebase.User | null {
+    return this.firebaseAuth.auth.currentUser;
   }
 }

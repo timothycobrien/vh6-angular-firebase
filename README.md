@@ -119,6 +119,31 @@ This is going to be a pretty simple login button for now. I'm going to rely on `
 
 Now add `MatButtonModule` to our imports down below as we did earlier.
 
+Create the constructor as follows:
+
+```TypeScript
+constructor(
+    private loginService: LoginService
+) { }
+```
+
+And let's also create a method for our simple button push to call:
+
+```TypeScript
+logIn() {
+    this.loginService.signIn();
+}
+```
+
+How components work is that the view of the component is controlled by the linked HTML and CSS files. So let's just create something super simple for now. Define the HTML file as such:
+
+```HTML
+<div>
+    <h1>Login page</h1>
+    <button mat-button color="primary" (click)="logIn()">Login</button>  
+</div>
+```
+
 #### Check for being signed in
 
 This service will return a bool value telling us whether or not we're signed in. That's going to allow us to use something called a "route guard" to prevent the users from going anywhere in our application without being signed in first.
