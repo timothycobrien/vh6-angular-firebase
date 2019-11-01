@@ -3,11 +3,11 @@ import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class LoginComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  signIn() {
-    this.loginService.signIn().then(e => {
-      this.router.navigate(['home']);
+  signOut() {
+    this.loginService.signOut().then(e => {
+      this.router.navigate(['login']);
     });
   }
 

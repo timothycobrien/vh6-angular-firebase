@@ -3,32 +3,31 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    children: [
-      {
-        path: 'home',
-        component: AppComponent,
-        canActivate: [AuthService],
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      }
-    ]
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthService],
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',
     redirectTo: 'home',
   }
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
