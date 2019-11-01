@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     MatButtonModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

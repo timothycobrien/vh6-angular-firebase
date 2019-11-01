@@ -1,5 +1,22 @@
 <div>
-    <h1>Home</h1>
+  <h1>Home</h1>
+  <button mat-raised-button color="primary" (click)="signOut()">Log out</button>
 
-    <button mat-button color="primary" (click)="signOut()">Log out</button>
+  <form>
+    <label>{{ item }}</label>
+    <input [(ngModel)]="item" name="dummy"/>
+    <button mat-raised-button (click)="createItem()">Create</button>
+  </form>
+  <br/>
+
+  <button mat-flat-button (click)="renderItems()">Render</button>
+
+  <div *ngIf = "dataArr != null">
+      <ul>
+          <li *ngFor = "let item of dataArr">
+              Hey {{item}}!
+          </li>
+      </ul>
+  </div>
+
 </div>
