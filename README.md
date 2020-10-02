@@ -1,4 +1,4 @@
-# Angular and Firebase
+# Angular and Firebase: 📐🔥
 
 ## Angular
 
@@ -9,3 +9,10 @@ Angular is an amazing front-end framework for building more dynamic web applicat
 ## Firebase
 
 Firebase is a tool that allows you to build scalable and manageable applications through backend services that will make hosting, data storage, performance, analytics, testing, and distribution so much easier! 
+
+
+## Additional Resources: 
+1. https://developer.okta.com/blog/2019/02/28/build-crud-app-with-angular-and-firebase
+2. https://github.com/angular/angularfire
+3. https://medium.com/factory-mind/angular-firebase-typescript-step-by-step-tutorial-2ef887fc7d71
+4. https://angular-templates.io/tutorials/about/angular-crud-with-firebase
