@@ -10,6 +10,10 @@ Angular is an amazing front-end framework for building more dynamic web applicat
 
 Firebase is a tool that allows you to build scalable and manageable applications through backend services that will make hosting, data storage, performance, analytics, testing, and distribution so much easier! 
 
+## Workshop
+
+In this workshop, we will be building up an application integrating both Angular and Firebase in order to make a full-stack application! See https://learn.vandyhacks.org for more information! 
+
 
 ## Additional Resources: 
 1. https://developer.okta.com/blog/2019/02/28/build-crud-app-with-angular-and-firebase
